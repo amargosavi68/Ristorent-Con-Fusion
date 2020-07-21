@@ -1,0 +1,14 @@
+img{
+     height: 300px;
+     width: 300px;
+}
+
+button{
+     transition: 0.3s;
+     background: lightblue;
+}
+button:hover
+{
+     background: blue;
+     color: white;
+}
