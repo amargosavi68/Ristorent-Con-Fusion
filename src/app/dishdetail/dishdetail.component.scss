@@ -1,6 +1,10 @@
+.container{
+     font-family:sans-serif;
+}
+
 img{
-     height: 300px;
-     width: 300px;
+     height: 400px;
+     width: 500px;
 }
 
 button{
@@ -11,4 +15,14 @@ button:hover
 {
      background: blue;
      color: white;
+}
+
+mat-list-item
+{
+     border-bottom: 1px solid #ffa292;
+}
+
+mat-list-item:hover{
+     background: #f2f2ff;
+
 }
