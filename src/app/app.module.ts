@@ -9,8 +9,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from '././app-routing/app-routing.module';
 
-import { AppComponent } from './app.component';
+
 import 'hammerjs';
+import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -21,6 +22,7 @@ import { ContactComponent } from './contact/contact.component';
 
 import { DishService } from "./services/dish.service";
 import { PromotionService } from "./services/promotion.service";
+import { LeaderService } from "./services/leader.service";
 
 //import { AppRoutingModule } from "./app-routing/app-routing.module";
 
@@ -49,7 +51,8 @@ import { PromotionService } from "./services/promotion.service";
   ],
   providers: [
        DishService,
-       PromotionService
+       PromotionService,
+       LeaderService
  ],
   bootstrap: [AppComponent]
 })
