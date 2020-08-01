@@ -7,9 +7,12 @@ import { MatListModule } from "@angular/material/list";
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { AppRoutingModule } from '././app-routing/app-routing.module';
 import { MatDialogModule } from "@angular/material/dialog";
-
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { AppRoutingModule } from '././app-routing/app-routing.module';
+import { FormsModule } from "@angular/forms";
 
 import 'hammerjs';
 import { AppComponent } from './app.component';
@@ -47,20 +50,24 @@ import { LeaderService } from "./services/leader.service";
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatListModule,
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
     MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FlexLayoutModule,
+    FormsModule,
   ],
   providers: [
        DishService,
        PromotionService,
-       LeaderService
+       LeaderService,
  ],
  entryComponents: [
-      LoginComponent
+      LoginComponent,
 ],
   bootstrap: [AppComponent]
 })
