@@ -1,11 +1,12 @@
 .container{
      font-family:sans-serif;
+     word-wrap: normal;
 }
 
-img{
-     height: 400px;
-     width: 500px;
-}
+// img{
+//      height: 400px;
+//      width: 500px;
+// }
 
 button{
      transition: 0.3s;
@@ -16,13 +17,19 @@ button:hover
      background: blue;
      color: white;
 }
+matLine{
+     word-wrap: break-word;
+}
 
 mat-list-item
 {
-     border-bottom: 1px solid #ffa292;
+     border-bottom: 1px solid #ddd;
 }
 
-mat-list-item:hover{
-     background: #f2f2ff;
+.full-width {
+    width: 95%
+}
 
+.form-size{
+     width: 90%;
 }

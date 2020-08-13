@@ -57,8 +57,37 @@
                    </mat-list-item>
              </mat-list>
          </mat-card-content>
+         <div *ngIf="dish">
+                   <p>{{ commentForm.value['comment'] }}</p>
+                   <p>{{ commentForm.value['rating'] }}</p>
+                   <p>{{ commentForm.value['author'] }}</p>
+                   
+              <form novalidate [formGroup]="commentForm" #cform="ngForm" class="form-size" (ngSubmit)="onSubmit()">
+                   <p>
+                        <mat-form-field class="full-width">
+                             <input matInput type="text" formControlName="author" placeholder="Name" required>
+                        </mat-form-field>
+                        <mat-error *ngIf="formErrors.author">
+                             {{ formErrors.author }}
+                        </mat-error>
+                   </p>
+                   <p>
+                        <mat-slider min="1" max="5" step="1" formControlName="rating" thumbLabel="true" value=5 tickInterval=1></mat-slider>
+                   </p>
+                   <p>
+                     <mat-form-field class="full-width">
+                       <textarea matInput formControlName="comment" placeholder="Your Comment" rows=10 required></textarea>
+                     </mat-form-field>
+                     <mat-error *ngIf="formErrors.comment">
+                          {{ formErrors.comment }}
+                     </mat-error>
+                   </p>
+                   <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
+              </form>
+         </div>
     </mat-card>
   </div>
+
   <div [hidden]="dish" class="spinner">
        <mat-spinner></mat-spinner><h4>Loading...</h4>
   </div>
