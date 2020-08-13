@@ -48,7 +48,7 @@
                        <span> {{ obj.comment }} </span>
                      </p>
                      <p matLine>
-                       <span> {{ obj.rating }} stars</span>
+                       <span> {{ obj.rating }} Stars</span>
                      </p>
                      <p matLine>
                        <span>--{{obj.author}} {{ obj.date | date }} </span>
@@ -59,7 +59,7 @@
          </mat-card-content>
          <div *ngIf="dish">
                    <p>{{ commentForm.value['comment'] }}</p>
-                   <p>{{ commentForm.value['rating'] }}</p>
+                   <p>{{ commentForm.value['rating'] }} Stars</p> 
                    <p>{{ commentForm.value['author'] }}</p>
                    
               <form novalidate [formGroup]="commentForm" #cform="ngForm" class="form-size" (ngSubmit)="onSubmit()">
