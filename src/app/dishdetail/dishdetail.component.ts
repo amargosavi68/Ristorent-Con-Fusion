@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core'; //we have remove Input as we used routes
+import { Component, OnInit, ViewChild, Inject } from '@angular/core'; //we have remove Input as we used routes
 import { Params, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Location } from "@angular/common";
@@ -6,7 +6,8 @@ import { Dish } from "../shared/dish";
 import { Comment } from "../shared/comment";
 // import { DISHES } from "../shared/dishes";
 import { DishService } from "../services/dish.service";
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-dishdetail',
@@ -27,7 +28,11 @@ export class DishdetailComponent implements OnInit {
 
      @ViewChild('cform') commentFormDirective;
 
-  constructor(private dishService: DishService, private route: ActivatedRoute, private location: Location, private fb: FormBuilder) {
+  constructor(private dishService: DishService, 
+      private route: ActivatedRoute, 
+      private location: Location, 
+      private fb: FormBuilder,
+      @Inject('BaseURL') private BaseURL) {
        this.createForm();
  }
 
