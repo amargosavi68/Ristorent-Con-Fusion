@@ -34,7 +34,9 @@ import { LoginComponent } from './login/login.component';
 import { DishService } from "./services/dish.service";
 import { PromotionService } from "./services/promotion.service";
 import { LeaderService } from "./services/leader.service";
+import { ProcessHTTPMsgService } from "./services/process-httpmsg.service"
 import { baseURL } from "./shared/baseurl";
+import { from } from 'rxjs';
 
 
 //import { AppRoutingModule } from "./app-routing/app-routing.module";
@@ -78,6 +80,7 @@ import { baseURL } from "./shared/baseurl";
        DishService,
        PromotionService,
        LeaderService,
+       ProcessHTTPMsgService,
        {provide:'BaseURL', useValue:baseURL},
  ],
  entryComponents: [

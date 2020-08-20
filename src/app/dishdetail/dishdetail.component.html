@@ -31,9 +31,13 @@
           </button>
         </mat-card-actions>
       </mat-card>
-      <div [hidden]="dish" class="spinner">
-           <mat-spinner></mat-spinner><h4>Loading...</h4>
+      <div [hidden]="dish || errMess" class="spinner">
+          <mat-spinner></mat-spinner><h4>Loading...</h4>
       </div>
+      <div fxflex *ngIf="errMess">
+          <h2>Error</h2>
+          <h4>{{ errMess }}</h4>
+     </div>
   </div>
 
   <div fxFlex="40">
@@ -88,8 +92,13 @@
     </mat-card>
   </div>
 
-  <div [hidden]="dish" class="spinner">
+  <div [hidden]="dish || errMess" class="spinner">
        <mat-spinner></mat-spinner><h4>Loading...</h4>
   </div>
+
+  <div fxflex *ngIf="errMess">
+     <h2>Error</h2>
+     <h4>{{ errMess }}</h4>
+   </div>
 
 </div>
