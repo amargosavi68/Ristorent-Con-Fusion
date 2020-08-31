@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Feedback, ContactType } from "../shared/feedback";
 import { flyInOut, expand } from "../animations/app.animation";
+import { FeedbackService } from "../services/feedback.service";
 
 @Component({
   selector: 'app-contact',
@@ -16,14 +17,19 @@ import { flyInOut, expand } from "../animations/app.animation";
      expand()
   ]
 })
+
 export class ContactComponent implements OnInit {
 
      feedbackForm: FormGroup;
      feedback: Feedback;
+     feedbackcopy: Feedback;
      contactType = ContactType;
+     errMess: string;
+     show = true;
      @ViewChild('fform') feedbackFormDirective;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private feedbackService: FeedbackService) {
        this.createForm();
  }
 
@@ -96,8 +102,19 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-         this.feedback = this.feedbackForm.value;
-         console.log(this.feedback);
+          this.show = false;
+         this.feedbackcopy = this.feedbackForm.value;
+         //console.log(this.feedbackcopy);
+         //console.log(!this.feedbackcopy);
+         this.feedbackService.postFeedback(this.feedbackcopy)
+              .subscribe(feedback => {
+                this.feedback = feedback; this.feedbackcopy = feedback;
+                this.show = false;
+                setTimeout(() => {
+                  this.show = true;
+                }, 5000);
+              },
+              errmess => {this.feedback = null; this.feedbackcopy=null; this.errMess = <any>errmess;});
          this.feedbackForm.reset({
               firstname: '',
               lastname: '',
@@ -107,6 +124,8 @@ export class ContactComponent implements OnInit {
               contacttype: 'None',
               message: ''
          });
+         
+         //console.log(!this.feedback);
          this.feedbackFormDirective.resetForm()
   }
 

@@ -62,10 +62,12 @@
              </mat-list>
          </mat-card-content>
          <div *ngIf="dish">
-                   <p>{{ commentForm.value['comment'] }}</p>
+                   
+               <div *ngIf="commentForm.valid">
+                    <p>{{ commentForm.value['comment'] }}</p>
                    <p>{{ commentForm.value['rating'] }} Stars</p> 
                    <p>{{ commentForm.value['author'] }}</p>
-                   
+               </div>
               <form novalidate [formGroup]="commentForm" #cform="ngForm" class="form-size" (ngSubmit)="onSubmit()">
                    <p>
                         <mat-form-field class="full-width">
